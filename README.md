@@ -36,3 +36,20 @@ marketplaces: [
 
 * Put whole server url including client_id and redirect_uri if your own server requires it.
 Current code is set to run at port 5000 and localhost:5000 is registered at amazon cognito.
+
+### Connecting api servers
+* Open `src/js/modules/config-default.js` file
+
+```
+.constant("Config", {
+	"dataStorageDeliverySvcUrl": "http://yourserversurl",
+	"categorySvcUrl": "http://yourserversurl",
+	"catalogSvcUrl": "http://yourserversurl",
+	"reviewSvcUrl": "http://yourserversurl",
+	"tradeSvcUrl": "http://yourserversurl",
+	"streamSvcUrl": "http://yourserversurl",
+	"streamConsumptionSvcUrl": "http://yourserversurl"
+})
+```
+
+* Put your api servers url for each services

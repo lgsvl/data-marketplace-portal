@@ -32,7 +32,7 @@
         function uploadFile(contractId, formdata, onSuccess) {
             var request = {
                 method: 'POST',
-                url: Config.faisalSvcUrl + '/ipfs/',
+                url: Config.dataStorageDeliverySvcUrl + '/ipfs/',
                 data: formdata,
                 headers: {
                     'Content-Type': undefined,
@@ -53,7 +53,7 @@
         function downloadFile(contractId, hash, onReady) {
             var request = {
                 method: 'GET',
-                url: Config.faisalSvcUrl + '/ipfs/' + hash,
+                url: Config.dataStorageDeliverySvcUrl + '/ipfs/' + hash,
                 responseType: 'arraybuffer',
                 headers: {
                     'contractid': contractId,
