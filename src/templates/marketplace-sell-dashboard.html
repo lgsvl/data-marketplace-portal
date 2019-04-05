@@ -1,0 +1,158 @@
+<!--Created by gina on 11/14/18.-->
+<div ng-controller="SellDashboardController as data" class="container-fluid sell-dashboard-container">
+   <div class="dashboard-container">
+      <div class="title-label">Dashboard</div>
+      <div class="dashboard">
+         <div class="dashboard-panel1 panel-item">
+            <div class="dashboard-image"></div>
+         </div>
+         <div class="dashboard-panel2 panel-item">
+            <div class="dashboard-image"></div>
+         </div>
+         <div class="dashboard-panel3 panel-item upload-request-container">
+            <div class="upload-label-container">
+               <div class="upload-label">Upload request:</div>
+               <div class="num-of-data-requested">{{data.soldToUpload.length}}</div>
+            </div>
+            <div class="list-of-data-requested">
+               <div class="dataset-table">
+                  <div class="table-responsive">
+                     <table datatable="ng" class="hover col-md-12">
+                        <tbody>
+                           <tr ng-repeat="dataset in data.soldToUpload">
+                              <td class="first-column">
+                                 <div class="user-image">
+                                    <!--em.icon-picture-->
+                                 </div>
+                                 <div class="text-container">
+                                    <div ng-bind="data.getCompanyName(dataset.consumer)" class="buyer"></div>
+                                    <div class="requested-date">{{dataset.creationDateTime | date: 'mm-dd-yyyy'}}</div>
+                                 </div>
+                              </td>
+                              <td>
+                                 <div class="data-name">{{dataset.detail.name}}</div>
+                              </td>
+                              <td class="col-md-1">
+                                 <div ng-click="data.openUpload(dataset)" class="upload-icon"></div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="sell-data-list-container">
+      <div class="title-container">
+         <div class="left-container">
+            <div class="title-label">Your products:</div>
+            <div class="num-of-products">2</div>
+            <div ng-click="data.openSellDataPage()" class="sell-button">
+               <em class="plus-icon"></em>
+               <div class="sell-label">Sell new data</div>
+            </div>
+         </div>
+         <div class="input-group dropdown-buttons right-container">
+            <div dropdown="" class="input-group-btn category-btn custom-dropdown">
+               <button type="button" dropdown-toggle="" value="Data" class="btn">
+                  <div class="button-label">{{data.category}}</div>
+                  <span class="dropdown-arrow"></span>
+               </button>
+               <ul class="dropdown-menu">
+                  <li ng-repeat="category in data.categories"><a ng-click="data.setCategory(category)">{{category.name}}</a>
+                  </li>
+               </ul>
+            </div>
+            <div dropdown="" class="input-group-btn sorting-btn custom-dropdown">
+               <button type="button" dropdown-toggle="" value="Data" class="btn">
+                  <div class="button-label">{{data.sort}}</div>
+                  <span class="dropdown-arrow"></span>
+               </button>
+               <ul class="dropdown-menu">
+                  <li ng-repeat="sort in data.sortingOptions"><a ng-click="data.setSorting(sort)">{{sort}}</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="dataset-table">
+         <div class="table-responsive">
+            <table datatable="ng" class="table-bordered hover">
+               <thead>
+                  <tr>
+                     <th class="col-md-4">DATA TITLE</th>
+                     <th>TYPE</th>
+                     <th>PRICE</th>
+                     <th>CREATE</th>
+                     <th>STATUS</th>
+                     <th>EDIT</th>
+                     <th>REQUEST</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="product in data.soldProducts">
+                     <td class="first-column">
+                        <div style="background-image: url({{product.thumbnailURL}})" class="image"></div>
+                        <div class="text-container">
+                           <div class="name">{{product.name}}</div>
+                           <div ng-bind="data.getCategory(product.categoryId)" class="category"></div>
+                           <rating ng-model="product.score" max="5" readonly="true" class="rate"></rating>
+                        </div>
+                     </td>
+                     <td>{{product.dataType}}</td>
+                     <td>{{product.priceType.amount}}</td>
+                     <td>{{product.creationDateTime | date}}</td>
+                     <td class="status-row">
+                        <div class="status">ACTIVE</div>
+                        <!--button.btn.btn-default INACTIVE-->
+                     </td>
+                     <td>
+                        <div class="edit-icon"></div>
+                        <!--em.icon-wrench-->
+                     </td>
+                     <td ng-click="data.openDataContractList(product)">
+                        <div class="request-container">
+                           <div class="request-icon">
+                              <div ng-if="product.numberOfDataToUpload != 0" class="request-number">{{product.numberOfDataToUpload}}</div>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="search-container form-group">
+         <div class="search-input">
+            <input type="text" placeholder="Search.." class="form-control" />
+         </div>
+         <div class="search-button">
+            <button type="button" class="btn"></button>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/ng-template" id="dataContractListDialog">
+   <div class="panel-body data-contract-list-dialog"><div class="data">{{product.name}} : {{contractList.length}} Requests</div><div class="contract-list-table"><div class="table-responsive"><table datatable="ng" class="hover col-md-12"><thead><tr><th class="first-head">CUSTOMER</th><th>DATE</th><th></th></tr></thead><tbody><tr ng-repeat="contract in contractList"><td class="first-column"><div class="user-image"><!--em.icon-picture--></div><div class="text-container"><div ng-bind="getCompanyName(contract.consumer)" class="buyer"></div></div></td><td><div class="requested-date">{{contract.creationDateTime | date: 'mm-dd-yyyy'}}</div></td><td class="col-md-1"><div ng-click="openUpload(contract)" class="upload-icon"></div></td></tr></tbody></table></div></div></div>
+</script>
+<script type="text/ng-template" id="uploadDataDialog">
+   <div class="panel-body upload-data-dialog">
+      <div class="upload-data-label">Dataname : Upload file</div>
+      <div class="form-group select-file-panel">
+         <div>
+            <div class="upload-input-container">
+               <input filestyle="" type="file" data-button-text="Choose file" data-class-button="btn" uploader="uploader" multiple="" ng-files="getTheFiles($files)" data-placeholder="test" class="upload-input"/>
+               <label ng-class="{'file-selected': fileSelected}" class="no-file-label">No file chosen.</label>
+            </div>
+            <div class="finish-upload-btn">
+               <button ng-click="uploadFile(dataset.id)" class="btn btn-default">Send</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</script>
+<script type="text/ng-template" id="uploadDataSuccessfulDialog">
+   <div class="panel-body data-successful-dialog"><div class="text">Data has been sent successfully. </div></div>
+</script>

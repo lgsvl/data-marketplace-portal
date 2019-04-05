@@ -1,0 +1,518 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="BrowseController as browse" class="container-fluid browse-container">
+   <div class="form-group">
+      <div class="search-container">
+         <div class="input-group dropdown-buttons">
+            <div dropdown="" class="input-group-btn category-btn custom-dropdown">
+               <button type="button" dropdown-toggle="" value="Data" class="btn btn-default">
+                  <div class="button-label">Groups</div>
+                  <span class="dropdown-arrow"></span>
+               </button>
+            </div>
+         </div>
+         <label for="input-search" class="sr-only">Search...</label>
+         <div class="search-field">
+            <input id="input-search" type="text" placeholder="Search..." ng-model="browse.searchKeyword" class="form-control search-input" />
+            <div ng-click="browse.search('keyword', browse.searchKeyword)" class="search-button">
+               <button type="button" class="btn"></button>
+            </div>
+         </div>
+      </div>
+      <div ng-if="browse.subContainer == 1" class="default-panel-container">
+         <div class="category-container">
+            <div class="browse-category-label">Browse by category</div>
+            <div class="list-categories-container">
+               <div ng-repeat="category in browse.categories" class="category">
+                  <button ng-click="browse.search('category', category)" class="btn category-btn">{{category.name}}</button>
+                  <span class="category-bar">|</span>
+               </div>
+            </div>
+         </div>
+         <div class="container-1 sub-container">
+            <div class="inner-container">
+               <div class="title-label">Latest products 12</div>
+               <div animate-enabled="false" class="carousel-container">
+                  <carousel>
+                     <slide ng-repeat="slide in browse.carouselSlides" active="slide.active">
+                        <div class="products-list">
+                           <div class="products-list-inner">
+                              <div ng-repeat="product in slide" class="product">
+                                 <div data-ng-click="browse.onDatasetClicked(product)" class="panel">
+                                    <div class="image">
+                                       <div style="background-image: url({{product.thumbnailURL}})" class="image-container">
+                                          <!--.image-icon-->
+                                       </div>
+                                       <div class="streaming-container"></div>
+                                    </div>
+                                    <div class="data-container">
+                                       <div class="left-container">
+                                          <div class="name-label">{{product.name}}</div>
+                                          <div ng-bind="browse.getCategory(product.categoryId)" class="category-name"></div>
+                                          <rating ng-model="product.score" max="max" readonly="true" class="rate"></rating>
+                                          <div class="group-name">GROUP NAME</div>
+                                       </div>
+                                       <div class="right-container">
+                                          <div class="price-label">{{product.priceType.amount}}</div>
+                                          <div class="price-unit-label">Token</div>
+                                       </div>
+                                       <!--.add-to-cart-->
+                                       <!--    em.icon-plus-->
+                                       <!--    .label-add Add to cart-->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </slide>
+                  </carousel>
+               </div>
+            </div>
+         </div>
+         <div class="container-2 sub-container">
+            <div class="inner-container">
+               <div class="title-label">Popular data</div>
+               <div class="popular-dataset-container">
+                  <div class="dataset-container1 dataset-container">
+                     <div class="dataset-unit dataset-unit1">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">SMART HOME</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit2">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">HEALTH</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit3">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">AUTOMOTIVE</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit4">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">SOCIAL</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="dataset-container1 dataset-container">
+                     <div class="dataset-unit dataset-unit5">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">WEATHER</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit6">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">ENERGY</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit7">
+                        <div class="image">
+                           <div class="icon"></div>
+                        </div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">ENERGY</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="dataset-unit dataset-unit8">
+                        <div class="image"></div>
+                        <div class="bottom-container">
+                           <div class="left-container">
+                              <div class="name-label">Powerful and flexible</div>
+                              <div class="category-name">ENERGY</div>
+                           </div>
+                           <div class="right-container">
+                              <div class="price-label">1</div>
+                              <div class="price-unit-label">Token</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--.dataset-container2.dataset-container-->
+                  <!--    .dataset-unit(ng-repeat="item in [1,2,3,4]")-->
+                  <!--        .image-->
+                  <!--        .name-label Powerful and flexible-->
+                  <!--        .price $72-->
+               </div>
+            </div>
+         </div>
+         <div class="container-3 sub-container">
+            <div class="inner-container">
+               <div class="title-label">Picked for you</div>
+               <div class="bottom-panel">
+                  <div class="left-panel">
+                     <div class="name-label">{{browse.pickedForYou.name}}</div>
+                     <div class="review-container">
+                        <rating ng-model="browse.pickedForYou.score" max="max" readonly="true" class="rate"></rating>
+                        <div class="review-number">35 reviews</div>
+                     </div>
+                     <div class="data-info-container">
+                        <div class="data-type-icon"></div>
+                        <div class="data-type">{{browse.pickedForYou.dataType}}</div>
+                        <div class="category">AUTOMOTIVE</div>
+                        <div class="group-name">GROUP NAME</div>
+                     </div>
+                     <div class="description">{{browse.pickedForYou.description}}</div>
+                     <div class="bottom-container">
+                        <div class="price-days">
+                           <div class="price">{{browse.pickedForYou.priceType.amount}}</div>
+                           <div class="unit">token</div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="right-panel">
+                     <div class="image"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-4 sub-container">
+            <div class="inner-container">
+               <div class="title-label">Popular categories</div>
+               <!--.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore-->
+               <div class="popular-category-container">
+                  <div class="category-container1 category-container">
+                     <div ng-repeat="item in browse.categoryPopular" class="category-unit">
+                        <!--.category-icon-->
+                        <div ng-bind="browse.getCategory(item.dataCategoryId)" class="name-label"></div>
+                        <div class="item-num-label">{{item.number}} Items</div>
+                     </div>
+                  </div>
+                  <!--.category-container2.category-container-->
+                  <!--    .category-unit(ng-repeat="item in [1,2,3]")-->
+                  <!--        .name-label Powerful and flexible-->
+                  <!--        .item-num-label $72-->
+               </div>
+            </div>
+         </div>
+      </div>
+      <div ng-if="browse.subContainer == 2" class="search-result-panel-container">
+         <div class="breadcrumb-container">
+            <div ng-click="browse.goBrowsePage()" class="browse">BROWSE</div>
+            <div class="slash">/</div>
+            <div class="current-page">SEARCH RESULT</div>
+         </div>
+         <!--.top-container-->
+         <!--    button.btn.mt-md(ng-click="browse.clearSearchResult()") Clear-->
+         <div class="dataset-result-container">
+            <div class="left-container">
+               <div class="filtering-image"></div>
+            </div>
+            <div class="right-container dataset-container">
+               <div class="number-of-result">{{browse.dataset.length}} results {{browse.searchedKeyword}}</div>
+               <div infinite-scroll="deck.loadMore()" infinite-scroll-distance="1" class="dataset-row">
+                  <div ng-repeat="item in browse.dataset">
+                     <div class="dataset-unit">
+                        <div data-ng-click="browse.onDatasetClicked(item)">
+                           <div style="background-image: url({{item.thumbnailURL}})" class="image"></div>
+                           <div class="bottom-container">
+                              <div class="left-container">
+                                 <div class="name-label">{{item.name}}</div>
+                                 <div ng-bind="browse.getCategory(item.categoryId)" class="category-name"></div>
+                                 <rating ng-model="item.score" max="max" readonly="true" class="rate"></rating>
+                              </div>
+                              <div class="right-container">
+                                 <div class="price-label">{{item.priceType.amount}}</div>
+                                 <div class="price-unit-label">Token</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--div.button-container-->
+         <!--    button.btn.mt-lg(ng-click="") View more-->
+      </div>
+      <div ng-if="browse.subContainer == 2.5" class="search-result-panel-container">
+         <div class="breadcrumb-container">
+            <div ng-click="browse.goBrowsePage()" class="browse">BROWSE</div>
+            <div class="slash">/</div>
+            <div class="current-page">LATEST PRODUCTS</div>
+         </div>
+         <div class="dataset-result-container">
+            <div class="left-container">
+               <div class="filtering-image"></div>
+            </div>
+            <div class="right-container dataset-container">
+               <div class="number-of-result">{{browse.dataset.length}} results {{browse.searchedKeyword}}</div>
+               <div infinite-scroll="deck.loadMore()" infinite-scroll-distance="1" class="dataset-row">
+                  <div ng-repeat="item in browse.dataset">
+                     <div class="dataset-unit">
+                        <div data-ng-click="browse.onDatasetClicked(item._source)">
+                           <div style="background-image: url({{item._source.thumbnailURL}})" class="image"></div>
+                           <div class="bottom-container">
+                              <div class="left-container">
+                                 <div class="name-label">{{item._source.name}}</div>
+                                 <div ng-bind="browse.getCategory(item._source.categoryId)" class="category-name"></div>
+                                 <rating ng-model="item._source.score" max="max" readonly="true" class="rate"></rating>
+                              </div>
+                              <div class="right-container">
+                                 <div class="price-label">{{item._source.priceType.amount}}</div>
+                                 <div class="price-unit-label">Token</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--div.button-container-->
+         <!--    button.btn.mt-lg(ng-click="") View more-->
+      </div>
+      <div ng-if="browse.subContainer == 3" ng-controller="DetailDatasetController as detail" class="detail-dataset-container">
+         <div class="breadcrumb-container">
+            <div ng-click="browse.goBrowsePage()" class="browse">BROWSE</div>
+            <div class="slash">/</div>
+            <div class="current-page">LATEST PRODUCTS</div>
+         </div>
+         <div class="info-container">
+            <div class="left-container">
+               <div style="background-image: url({{detail.data.thumbnailURL}})" class="thumbnail-image"></div>
+            </div>
+            <div class="right-container dataset-metadata">
+               <div class="dataset-name">{{detail.data.name}}</div>
+               <div ng-bind="detail.getCategory(detail.data.categoryId)" class="category-label"></div>
+               <div class="provider">By {{detail.data.providerName}}</div>
+               <div class="rate-container">
+                  <rating ng-model="fakeRating" max="max" readonly="true" class="rate"></rating>
+               </div>
+               <div ng-if="detail.data.dataType == 'FILE'" class="file-container">
+                  <div class="meta-info-container">
+                     <div class="meta-info ownership">
+                        <div class="meta-label">OWNERSHIP</div>
+                        <div class="meta-value">{{detail.data.ownership.ownershipType}}</div>
+                     </div>
+                     <div class="meta-info file-size">
+                        <div class="meta-label">FILE SIZE</div>
+                        <div class="meta-value">23mb</div>
+                     </div>
+                     <div class="meta-info file-type">
+                        <div class="meta-label">FILE TYPE</div>
+                        <div class="meta-value">Downloadable</div>
+                     </div>
+                  </div>
+                  <div class="price-info">{{detail.data.priceType.amount}} Token</div>
+               </div>
+               <div ng-if="detail.data.dataType == 'STREAM'" class="stream-container">
+                  <div class="meta-info-container">
+                     <div class="meta-info frequency-update">
+                        <div class="meta-label">FREQUENCY OF UPDATES</div>
+                        <div class="meta-value">{{detail.data.extras.frequency}}/Minute</div>
+                     </div>
+                     <div class="meta-info file-type">
+                        <div class="meta-label">FILE TYPE</div>
+                        <div class="meta-value">Streaming</div>
+                     </div>
+                  </div>
+                  <div class="access-period-container">
+                     <div class="meta-label">CHOOSE YOUR ACCESS PERIOD</div>
+                     <div class="access-period">
+                        <div class="time form-group">
+                           <input type="text" name="timeValue" placeholder="0" ng-model="detail.timeValue" required="" ng-change="browse.getPricePerPeriod()" class="form-control" />
+                        </div>
+                        <div class="unit">
+                           <div dropdown="" class="input-group-btn category-btn custom-dropdown">
+                              <button type="button" dropdown-toggle="" value="Data" class="btn btn-default timeunit-btn">{{detail.timeUnit}}
+                                 <span class="dropdown-arrow"></span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                 <li ng-repeat="timeUnit in detail.timeUnits"><a ng-click="detail.setTimeUnit(timeUnit)">{{timeUnit}}</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="data-label">1 Data |</div>
+                        <div class="price-value">{{detail.data.priceType.amount}}</div>
+                        <div class="price-unit-label">Token</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="button-row">
+                  <button ng-click="" class="btn add-cart-btn">Add to cart</button>
+                  <div ng-if="detail.boughtDataset == false" class="buy-button">
+                     <button ng-click="detail.onClickBuyNow(detail)" class="btn">Buy now</button>
+                  </div>
+                  <div ng-if="detail.boughtDataset == true" class="buy-again-buttons">
+                     <button ng-click="detail.onClickBuyNow(detail)" class="btn buy-again-btn">Buy again</button>
+                     <div class="verified-label">Verified purchase</div>
+                     <div class="verified-icon"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="about-container">
+            <div class="about-label">About</div>
+            <div class="description">{{detail.data.description}}</div>
+            <!--a.readmore Read more-->
+         </div>
+         <div class="review-row">
+            <div class="review-list">
+               <div class="review-left-container">
+                  <div class="review">{{detail.data.reviews.length}} Customer reviews</div>
+                  <div class="review-rating">
+                     <rating ng-model="detail.data.score" max="max" readonly="true" class="rate"></rating>
+                     <div class="word-rate">{{detail.data.score}} OUT OF 5 STARS</div>
+                  </div>
+               </div>
+               <div class="review-right-container">
+                  <div ng-if="detail.boughtDataset == true" ng-click="detail.writeReview(detail.data)" class="review-button">
+                     <!--.plus-icon.icon-plus-->
+                     <div class="review-label">+ Write a customer review</div>
+                  </div>
+               </div>
+            </div>
+            <div ng-repeat="review in detail.data.reviews" ng-if="$index &lt; 3" class="review-container">
+               <div class="reviewer-container">
+                  <div class="image"></div>
+                  <div class="right-container">
+                     <div class="score-value">
+                        <rating ng-model="review.score" max="max" readonly="true" class="rate"></rating>
+                     </div>
+                     <!--.from-value Angela lau-->
+                     <div class="from-value">{{review.reviewer}}</div>
+                     <div class="review-date">06-21-2018</div>
+                  </div>
+               </div>
+               <div class="data-container">
+                  <div class="review-text">{{review.reviewText}}</div>
+               </div>
+               <div class="helpful-container">
+                  <button class="btn helpful-button">Helpful</button>
+                  <div class="helpful-text">385 people found this helpful</div>
+               </div>
+            </div>
+            <div ng-if="detail.moreReviews.length &gt; 0 &amp;&amp; detail.reviewsExpanded == false" class="see-more-review">
+               <button ng-click="detail.expandReviews()" class="btn see-more-btn">See all {{detail.data.reviews.length}} reviews ></button>
+            </div>
+            <div ng-repeat="review in detail.moreReviews" ng-if="detail.reviewsExpanded == true" class="review-container">
+               <div class="reviewer-container">
+                  <div class="image"></div>
+                  <div class="right-container">
+                     <div class="score-value">
+                        <rating ng-model="review.score" max="max" readonly="true" class="rate"></rating>
+                     </div>
+                     <!--.from-value Angela lau-->
+                     <div class="from-value">{{review.reviewer}}</div>
+                     <div class="review-date">06-21-2018</div>
+                  </div>
+               </div>
+               <div class="data-container">
+                  <div class="review-text">{{review.reviewText}}</div>
+               </div>
+               <div class="helpful-container">
+                  <button class="btn helpful-button">Helpful</button>
+                  <div class="helpful-text">385 people found this helpful</div>
+               </div>
+            </div>
+         </div>
+         <!--.review-more-button-->
+         <!--    button.btn.mt-lg(ng-click="") Read more-->
+         <div class="related-product-container">
+            <div class="inner-container">
+               <div class="title-label">Related products</div>
+               <div animate-enabled="false" class="carousel-container">
+                  <carousel>
+                     <slide ng-repeat="slide in detail.carouselSlides" active="slide.active">
+                        <div class="products-list">
+                           <div class="products-list-inner">
+                              <div ng-repeat="product in slide" class="product">
+                                 <div class="panel">
+                                    <div class="image">
+                                       <div style="background-image: url({{product.thumbnailURL}})" class="image-container">
+                                          <!--.image-icon-->
+                                       </div>
+                                       <div class="streaming-container"></div>
+                                    </div>
+                                    <div class="data-container">
+                                       <div class="left-container">
+                                          <div class="name-label">{{product.name}}</div>
+                                          <div ng-bind="browse.getCategory(product.categoryId)" class="category-name"></div>
+                                          <rating ng-model="product.score" max="max" readonly="true" class="rate"></rating>
+                                          <div class="group-name">GROUP NAME</div>
+                                       </div>
+                                       <div class="right-container">
+                                          <div class="price-label">{{product.priceType.amount}}</div>
+                                          <div class="price-unit-label">Token</div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </slide>
+                  </carousel>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/ng-template" id="buynowFileDialog">
+   <div class="ngdialog-message"><h3>BUY NOW</h3><div class="row"><div class="col-md-6 image"></div><div class="col-md-6"><div class="dataset-name">{{data.name}}</div><div class="row"><div class="col-md-6">FROM</div><div class="col-md-6">PRICE</div></div><div class="row"><div class="col-md-6">{{data.name}}</div><div class="col-md-6">{{data.price.amount}} {{data.priceType.currency}}</div></div></div></div><button type="button" ng-click="placeOrder()" class="btn btn-default">Place order</button></div>
+</script>
+<script type="text/ng-template" id="buynowStreamDialog">
+   <div class="ngdialog-message"><h3>CHOOSE YOUR ACCESS PERIOD</h3><div class="row"><div class="time form-group col-md-12"><input type="text" name="time" placeholder="" ng-model="time" required="" class="form-control"/></div><div class="col-md-12"><div class="btn-group"><label ng-model="radioModel" btn-radio="'HOUR'" ng-click="setTab(&quot;HOUR&quot;)" class="btn btn-default">HOUR</label><label ng-model="radioModel" btn-radio="'DAY'" ng-click="setTab(&quot;DAY&quot;)" class="btn btn-default">DAY</label><label ng-model="radioModel" btn-radio="'WEEK'" ng-click="setTab(&quot;WEEK&quot;)" class="btn btn-default">WEEK</label><label ng-model="radioModel" btn-radio="'MONTH'" ng-click="setTab(&quot;MONTH&quot;)" class="btn btn-default">MONTH</label></div></div><div class="col-md-12"></div></div><button type="button" ng-click="placeOrder()" class="btn btn-default">Place order</button></div>
+</script>
+<script type="text/ng-template" id="writeReviewDialog">
+   <div class="ngdialog-review-dialog"><div class="review-title">Rate and review</div><div class="meta-container"><div style="background-image: url({{data.thumbnailURL}})" class="image-thumbnail"></div><div class="right-container"><div class="data-name">{{data.name}}</div><rating ng-change="updateReady('score')" ng-model="data.review.score" max="5" class="rate"></rating></div></div><textarea placeholder="Enter comment here. Max 400 characters: " ng-model="data.review.reviewText" ng-change="updateReady('text')" class="form-control review-text"></textarea><button type="button" ng-click="postReview()" ng-class="{'review-ready': reviewReady}" ng-disabled="buttonDisabled" class="btn btn-default post-review-btn">Post Review</button></div>
+</script>
+<script type="text/ng-template" id="writeReviewSuccessfulDialog">
+   <div class="panel-body write-review-successful-dialog"><div class="thank-you-label">Thank you!</div><div class="successful-label">Your Reivew has been successfully submitted.</div></div>
+</script>

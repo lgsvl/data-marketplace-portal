@@ -1,0 +1,114 @@
+<!--Created by gina on 9/19/18.
+-->
+<div ng-controller="LandingController as landing" animate-enabled="false" class="landing-page">
+   <div class="panel-unit first-panel">
+      <div class="inner-content">
+         <div class="text-panel">
+            <div class="member-label">BECOME A MEMBER</div>
+            <div class="member-description">DataGraviti is a global data marketplace where you can sell and buy data directly. Our trusted third-party platform gives you full control over your data transactions.</div>
+            <button type="submit" ng-click="" class="member-button">JOIN US</button>
+         </div>
+         <div class="video-panel">
+            <video loop="loop" muted="muted" autoplay="autoplay" oncanplay="this.play()" onloadedmetadata="this.muted = true" class="video-container">
+               <source ng-src="../img/landingPage/Data_Marketplace_Graph_Wiggle_Circles_1300x778.mp4" type="video/mp4" />
+            </video>
+         </div>
+      </div>
+   </div>
+   <div class="panel-unit second-panel">
+      <div class="inner-content">
+         <div class="title-label">Trusted By OCF</div>
+         <div class="description-label">DataGraviti is the permissioned, enterprise-grade, decentralized data exchange platform for data professionals and industry consortiums who value control and privacy at a global scale. We have more than 160 global customers and partners across
+            industries like technology, automotive, <h></h>ealthcare, and energy sectors.</div>
+         <div class="company-list-container">
+            <div class="company-item first"></div>
+            <div class="company-item second"></div>
+            <div class="company-item third"></div>
+            <div class="company-item fourth"></div>
+            <div class="company-item fifth"></div>
+            <div class="company-item sixth"></div>
+            <div class="company-item seventh"></div>
+            <div class="company-item eighth"></div>
+         </div>
+      </div>
+   </div>
+   <div class="panel-unit third-panel">
+      <div class="inner-content">
+         <carousel interval="landing.carouselInterval">
+            <slide ng-repeat="slide in landing.carouselSlides" active="slide.active">
+               <div class="introduce-container">
+                  <div class="title-label">{{slide.title}}</div>
+                  <div class="description-label">{{slide.description}}</div>
+                  <div class="features">
+                     <div class="feature1 feature">
+                        <div style="background-image: url({{slide.feature1.icon}})" class="icon"></div>
+                        <div class="name-label">{{slide.feature1.name}}</div>
+                        <div class="feature-description">{{slide.feature1.description}}</div>
+                     </div>
+                     <div class="feature2 feature">
+                        <div style="background-image: url({{slide.feature2.icon}})" class="icon"></div>
+                        <div class="name-label">{{slide.feature2.name}}</div>
+                        <div class="feature-description">{{slide.feature2.description}}</div>
+                     </div>
+                     <div class="feature3 feature">
+                        <div style="background-image: url({{slide.feature3.icon}})" class="icon"></div>
+                        <div class="name-label">{{slide.feature3.name}}</div>
+                        <div class="feature-description">{{slide.feature3.description}}</div>
+                     </div>
+                  </div>
+               </div>
+               <!--img(ng-src='{{slide.image}}', style='margin: auto;', alt="")-->
+            </slide>
+         </carousel>
+      </div>
+   </div>
+   <div class="panel-unit fourth-panel">
+      <div class="inner-content">
+         <div class="title-label text-lg">Data Marketplace</div>
+         <div class="description-label">We provide a distributed ledger based enterprise-grade data exchange built to trade real-time stream and batch data privately among membership-based organizations. The decentralized nature bridges the privacy and trust gaps in traditional marketplaces.</div>
+         <div
+         class="data-container">
+            <div class="data1 data-item panel">
+               <div class="panel-value">42</div>
+               <div class="panel-label">Daily Uploaded data</div>
+               <div class="topright-dot"></div>
+            </div>
+            <div class="data2 data-item panel">
+               <div class="panel-value">674</div>
+               <div class="panel-label">Monthly uploaded data</div>
+               <div class="topright-dot"></div>
+            </div>
+            <div class="data3 data-item panel">
+               <div class="panel-value">8994</div>
+               <div class="panel-label">Yearly uploaded data</div>
+               <div class="topright-dot"></div>
+            </div>
+            <div class="data4 data-item panel">
+               <div class="panel-value">238994</div>
+               <div class="panel-label">Total Data</div>
+               <div class="topright-dot"></div>
+            </div>
+      </div>
+      <div class="article-container">
+         <div class="article-item panel">
+            <div class="date">March 14th, 2019</div>
+            <div class="title">Going against the grain, AngelPad kills its demo day</div>
+            <div class="description">Earlier this week, at the expansive Computer History Museum in Mountain View, Calif., Y Combinator introduced an exhaustive…</div>
+            <button type="submit" ng-click="" class="btn btn-default mt-lg button readbutton1">Read</button>
+         </div>
+         <div class="article-item panel">
+            <div class="date">March 12th, 2019</div>
+            <div class="title">Lawyaw uses AI to help lawyers draft documents faster</div>
+            <div class="description">It’s no secret that much of the legal industry is build on reusable content. Most law firms have their own customized set of standard…</div>
+            <button type="submit" ng-click="" class="btn btn-default mt-lg button readbutton2">Read</button>
+         </div>
+         <div class="article-item panel">
+            <div class="date">March 11th, 2019</div>
+            <div class="title">Tumblr confirms 84 accounts linked to Kremlin trolls</div>
+            <div class="description">Tumblr has confirmed that Kremlin trolls were active on its platform during the 2016 US presidential elections…</div>
+            <button type="submit" ng-click="" class="btn btn-default mt-lg button readbutton3">Read</button>
+         </div>
+      </div>
+   </div>
+</div>
+</div>

@@ -1,0 +1,157 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="MyAccountPurchaseController as data" class="container-fluid account-purchased-container">
+   <div class="panel panel-default">
+      <div class="panel-heading">PAST PURCHASE</div>
+      <div class="panel-body">
+         <div class="header">Recently purchased - ready to download</div>
+         <div ng-repeat="dataset in data.purchasedUploadedNotDownloaded" class="well purchased">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="image"></div>
+               </div>
+               <div class="col-md-9">
+                  <div class="data-name">{{dataset.detail.name}}</div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">FROM</div>
+                        <div class="name dataset-value">{{dataset.detail.provider}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">PRICE</div>
+                        <div class="price dataset-value">{{dataset.detail.price.amount}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">OWNERSHIP</div>
+                        <div class="ownership dataset-value">{{dataset.detail.ownership.ownershipType}}</div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <div class="col-md-2">
+                        <button ng-if="dataset.detail.dataType!='STREAM'" ng-click="data.downloadDataset(dataset.id, dataset.extras.fileHash.value)" class="btn btn-primary">Download</button>
+                        <button ng-if="dataset.detail.dataType=='STREAM'" ng-click="data.viewStream(dataset)" class="btn btn-primary">View</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">CATEGORY</div>
+                        <div class="name dataset-value">{{dataset.detail.categoryId}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">FILE TYPE</div>
+                        <div class="price dataset-value">{{dataset.detail.dataType}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">FILE SIZE</div>
+                        <div class="ownership dataset-value"></div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <!--.col-md-2-->
+                     <!--    button.btn.btn-primary(ng-click="data.writeReview(dataset)") Review-->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="header">Purchased - waiting for dataset</div>
+         <div ng-repeat="dataset in data.purchasedNotUploaded" class="well purchased">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="image"></div>
+               </div>
+               <div class="col-md-9">
+                  <div class="data-name">{{dataset.detail.name}}</div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">FROM</div>
+                        <div class="name dataset-value">{{dataset.detail.provider}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">PRICE</div>
+                        <div class="price dataset-value">{{dataset.detail.price.amount}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">OWNERSHIP</div>
+                        <div class="ownership dataset-value">{{dataset.detail.ownership.ownershipType}}</div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <div class="col-md-2">
+                        <button disabled="disabled" ng-click="data.downloadDataset(dataset.id, dataset.extras.fileHash.value)" class="btn btn-defualt">Not Uploaded</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">CATEGORY</div>
+                        <div class="name dataset-value">{{dataset.detail.categoryId}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">FILE TYPE</div>
+                        <div class="price dataset-value">{{dataset.detail.dataType}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">FILE SIZE</div>
+                        <div class="ownership dataset-value"></div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <!--.col-md-2-->
+                     <!--    button.btn.btn-primary(ng-click="data.writeReview(dataset)") Review-->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="header">Purchased history</div>
+         <div ng-repeat="dataset in data.purchasedDownloaded" class="well purchased">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="image"></div>
+               </div>
+               <div class="col-md-9">
+                  <div class="data-name">{{dataset.detail.name}}</div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">FROM</div>
+                        <div class="name">{{dataset.detail.provider}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">PRICE</div>
+                        <div class="price">{{dataset.detail.price.amount}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">OWNERSHIP</div>
+                        <div class="ownership">{{dataset.detail.ownership.ownershipType}}</div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <div class="col-md-2">
+                        <button ng-if="dataset.detail.dataType!='STREAM'" ng-click="data.downloadDataset(dataset.id, dataset.extras.fileHash.value)" class="btn btn-primary">Download</button>
+                        <button ng-if="dataset.detail.dataType=='STREAM'" class="btn btn-primary">Expired</button>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <div class="from-label dataset-label">CATEGORY</div>
+                        <div class="name dataset-value">{{dataset.detail.categoryId}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="price-label dataset-label">FILE TYPE</div>
+                        <div class="price dataset-value">{{dataset.detail.dataType}}</div>
+                     </div>
+                     <div class="col-md-2">
+                        <div class="ownership-label dataset-label">FILE SIZE</div>
+                        <div class="ownership dataset-value"></div>
+                     </div>
+                     <div class="col-md-3"></div>
+                     <div class="col-md-2">
+                        <button ng-click="data.writeReview(dataset)" class="btn btn-primary">Review</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/ng-template" id="writeReviewDialog">
+   <div class="ngdialog-message"><h3>Review 0/5</h3><div class="row"><div class="col-md-3"><div class="image"></div><div class="review-label">FROM</div><div class="value">{{data.providerShort}}</div></div><div class="col-md-9"><div class="col-md-12"><div class="review-label">SCORE</div><input type="text" name="score" placeholder="Score" ng-model="data.review.score" required="" class="form-control"/></div><div class="col-md-12"><div class="date">{{todayDate | date}}</div><textarea placeholder="Start your review here! " ng-model="data.review.reviewText" class="form-control"></textarea></div></div></div><div class="row button-row"><button type="button" ng-click="postReview()" class="btn btn-default">Post Review</button></div></div>
+</script>
+<script type="text/ng-template" id="streamDialog">
+   <div class="ngdialog-stream-dialog"><h3>Stream data</h3><div class="row"><div class="col-md-12 metadata-container"><div class="col-md-2"><div class="label">FROM</div><div class="value">{{data.detail.provider}}</div></div><div class="col-md-2"><div class="label">PRICE</div><div class="value">{{data.detail.price.amount}}</div></div><div class="col-md-2"><div class="label">FREQUENCY</div><div class="value">{{data.detail.extras.frequency}}</div></div><div class="col-md-2"><div class="label">CATEGORY</div><div class="value">{{data.detail.categoryId}}</div></div><div class="col-md-2"><div class="label">FILE TYPE</div><div class="value">{{data.detail.dataType}}</div></div><div class="col-md-2"><div class="label">OWNERSHIP</div><div class="value">{{data.detail.ownership.ownershipType}}</div></div></div></div><div class="row"><div class="topic form-group col-md-4"><input type="text" name="topic" placeholder="Topic" ng-model="metadata.topic" required="" class="form-control"/></div><div class="endPoint form-group col-md-8"><input type="text" name="endpoint" placeholder="End Point" ng-model="metadata.endPoint" required="" class="form-control"/></div></div><!--.row.button-row--><!--    button.btn.btn-default(type='button', ng-click="loadMore()") Load more-->
+   
+   <div class="table-responsive"><table datatable="ng" class="table-striped table-bordered hover col-md-12"><thead><tr><th class="col-md-3">Offset</th><th class="col-md-9">DATA</th></tr></thead><tbody><tr ng-repeat="data in streamData"><td>{{ data.offset }}</td><td>{{ data.value }}</td></tr></tbody></table></div><!--.row--><!--    .col-md-12--><!--        .col-md-4 TIMESTAMP--><!--        .col-md-8 DATA--><!--    .col-md-12.stream-data(ng-repeat="data in streamData")--><!--        .col-md-4 {{}}--><!--        .col-md-8 {{}}--></div>
+</script>

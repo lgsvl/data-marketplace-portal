@@ -1,0 +1,10 @@
+<!-- top navbar-->
+<header ng-include="'templates/partials/top-navbar.html'" class="topnavbar-wrapper"></header>
+
+<!-- Main section-->
+<section class="main-section">
+   <!-- Page content-->
+   <div ui-view="" autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper"></div>
+   <!-- Page footer-->
+   <footer ng-include="'templates/partials/footer.html'"></footer>
+</section>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="269" height="275" viewBox="0 0 269 275">
+    <defs>
+        <path id="a" d="M0 85C0 38.056 38.059 0 85 0c46.944 0 85 38.059 85 85 0 46.944-38.059 85-85 85-46.944 0-85-38.059-85-85zm9.444 0c0 41.737 33.828 75.556 75.556 75.556 41.737 0 75.556-33.828 75.556-75.556 0-41.737-33.828-75.556-75.556-75.556C43.263 9.444 9.444 43.272 9.444 85z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(0 -5)">
+        <text fill="#393C40" font-family="Roboto-Light, Roboto" font-size="18" font-weight="300">
+            <tspan x="0" y="19">Statics</tspan>
+        </text>
+        <text fill="#AAAEB3" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="255.699" y="240">15</tspan>
+        </text>
+        <text fill="#393C40" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="32" y="240">File</tspan>
+        </text>
+        <g transform="translate(58 27)">
+            <mask id="b" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <use fill="#ECEDEF" xlink:href="#a"/>
+            <path fill="#D5D5D5" d="M118.467 138l36.852 53.527-206-47.099L41.32-23s-7.33 34.871 11 47c18.33 12.129-2.176 97.738-2.176 97.738L118.467 138z" mask="url(#b)"/>
+            <path fill="#EC475C" d="M85-8v59.365L108.206 138l67.113 65-5.14-206.288z" mask="url(#b)"/>
+        </g>
+        <rect width="12" height="12" x="8.5" y="229.5" stroke="#EC475C" stroke-width="3" rx="6"/>
+        <text fill="#AAAEB3" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="255.699" y="277">17</tspan>
+        </text>
+        <text fill="#393C40" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="32" y="277">Streaming data</tspan>
+        </text>
+        <rect width="12" height="12" x="8.5" y="266.5" stroke="#9B9B9B" stroke-width="3" rx="6"/>
+        <circle cx="143" cy="112" r="81" fill="#FFF"/>
+        <text fill="#393C40" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="129" y="145">Total</tspan>
+        </text>
+        <text fill="#4A4A4A" font-family="Roboto-Light, Roboto" font-size="35" font-weight="300">
+            <tspan x="123" y="122">32</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+<!--Created by gina on 9/19/18.
+-->
+<div ng-controller="RegisterController as register" class="container-fluid register-page">
+   <div class="block-center mt-xl wd-xl">
+      <!-- START panel-->
+      <div class="panel panel-dark panel-flat">
+         <!--.panel-heading.text-center-->
+         <div class="panel-body">
+            <p class="text-center pv">Register</p>
+            <form role="form" ng-submit="register.login()" name="register.loginForm" novalidate="" class="form-validate mb-lg">
+               <div class="form-group">
+                  <input type="text" name="account_name" placeholder="Enter name" ng-model="register.account.name" required="" class="form-control" />
+               </div>
+               <div class="form-group">
+                  <input type="email" name="account_email" placeholder="Enter email" ng-model="login.account.email" required="" class="form-control" />
+               </div>
+               <div class="form-group">
+                  <input type="text" name="account_company_name" placeholder="Enter company name" ng-model="login.account.companyName" required="" class="form-control" />
+               </div>
+               <div class="form-group">
+                  <input type="text" name="account_public_key" placeholder="Enter public key" ng-model="login.account.publicKey" required="" class="form-control" />
+               </div>
+               <div class="form-group">
+                  <input type="password" name="account_password" placeholder="Enter password" ng-model="login.account.password" required="" class="form-control" />
+               </div>
+               <div class="form-group">
+                  <input type="password" name="account_confirm_password" placeholder="Reenter Password" ng-model="login.account.confirmPassword" required="" class="form-control" />
+               </div>
+               <button type="submit" class="btn btn-block btn-primary mt-lg">Sign up</button>
+               <div class="checkbox c-checkbox pull-left mt0">
+                  <label>
+                     <input type="checkbox" value="" name="account_remember" ng-model="register.account.agreement" />
+                     <span class="fa fa-check"></span>I agreement bacon ipsum dolor amot chicken</label>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
