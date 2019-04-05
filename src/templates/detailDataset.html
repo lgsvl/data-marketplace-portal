@@ -1,0 +1,131 @@
+<!--//Created by gina on 9/18/18.-->
+<!--.container-fluid.detail-dataset-container(ng-controller="DetailDatasetController as dataset")-->
+<!--    .row-->
+<!--        .col-md-4: .photo(style="background-image: url('app/img/dummy.png')" onerror='this.src="app/img/logo-single.png"')-->
+<!---->
+<!--        .col-md-8: .dataset-metadata-->
+<!--            .dataset-title-->
+<!--                .dataset-name {{dataset.data.name}}-->
+<!--                .provider by {{dataset.data.provider}}-->
+<!--            .review-container-->
+<!--            .category-container-->
+<!--                .all-data-label All Data >-->
+<!--                .category-label {{dataset.data.categoryId}}-->
+<!---->
+<!--            .row.meta-info-container-->
+<!--                .col-md-3.meta-info-->
+<!--                    .meta-label GROUP-->
+<!--                    .meta-value Public-->
+<!--                .col-md-3.meta-info-->
+<!--                    .meta-label FILE SIZE-->
+<!--                    .meta-value 23mb-->
+<!--                .col-md-6.meta-info-->
+<!--                    .meta-label FILE TYPE-->
+<!--                    .meta-value {{dataset.data.dataType}}-->
+<!---->
+<!--            .file-container(ng-if="dataset.data.dataType == 'FILE'")-->
+<!--                .meta-info-->
+<!--                    .meta-label OWNERSHIP-->
+<!--                    .meta-value {{dataset.data.ownership.ownershipType}}-->
+<!--            .stream-container(ng-if="dataset.data.dataType == 'STREAM'")-->
+<!--                .access-period-container-->
+<!--                    .meta-label Choose your access period-->
+<!--                    .access-period-->
+<!--                        .time.form-group-->
+<!--                            input.form-control(type='text', name="timeValue" placeholder='0', ng-model="dataset.timeValue", required='')-->
+<!--                        .unit-->
+<!--                            .input-group-btn.category-btn(dropdown="")-->
+<!--                                button.btn.btn-default(type='button', dropdown-toggle="" value="Data")-->
+<!--                                    | {{dataset.timeUnit}}-->
+<!--                                    span.caret-->
+<!--                                ul.dropdown-menu-->
+<!--                                    li(ng-repeat="timeUnit in dataset.timeUnits")-->
+<!--                                        a(ng-click="dataset.setTimeUnit(timeUnit)") {{timeUnit}}-->
+<!--                        .data-label 1 Data |-->
+<!--                        .price-value {{dataset.data.priceType.amount}}-->
+<!--                        .price-unit-label USD-->
+<!--            .row.button-row-->
+<!--                .col-md-2-->
+<!--                    button.btn.btn-primary.mt-lg(ng-click="") Add to cart-->
+<!--                .col-md-10-->
+<!--                    button.btn.mt-lg(ng-click="dataset.onClickBuyNow(dataset)") Buy now-->
+<!---->
+<!--    .about-container-->
+<!--        .about-label About:-->
+<!--        .description {{dataset.data.description}}-->
+<!--        a.readmore Read more-->
+<!---->
+<!--    .row.well.review-row-->
+<!--        .col-md-12.review-list-->
+<!--            .review Review:-->
+<!--        .col-md-4.review-container(ng-repeat="review in dataset.review" ng-show="$index < 3")-->
+<!--            .row-->
+<!--                .col-md-2: .image-->
+<!--                .col-md-10.data-container-->
+<!--                    .col-md-8-->
+<!--                        .from-label FROM-->
+<!--                        .from-value {{review.reviewer}}-->
+<!--                    .col-md-4-->
+<!--                        .score-label SCORE-->
+<!--                        .score-value {{review.score}}-->
+<!--                    .col-md-12-->
+<!--                        .review-text {{review.reviewText}}-->
+<!--                    .col-md-12-->
+<!--                        .review-date {{review.timestamp | date}}-->
+<!---->
+<!--    .review-more-button-->
+<!--        button.btn.mt-lg(ng-click="") Read more-->
+<!--    .related-product-container-->
+<!--        .title-label Related products-->
+<!--        .carousel-container(animate-enabled="false")-->
+<!--            carousel-->
+<!--                slide(ng-repeat='slide in dataset.carouselSlides', active='slide.active')-->
+<!--                    .products-list-->
+<!--                        .products-list-inner-->
+<!--                            .product(ng-repeat='product in slide')-->
+<!--                                .panel-->
+<!--                                    .image-->
+<!--                                        .image-container(style="background-image: url('app/img/dummy.png')")-->
+<!--                                        .streaming-container-->
+<!---->
+<!--                                    .data-container-->
+<!--                                        .top-container-->
+<!--                                            .name-label {{product.name}}-->
+<!--                                            .price-label ${{product.priceType.amount}}-->
+<!--                                        .rate-->
+<!--                                        .add-to-cart-->
+<!--                                            em.icon-plus-->
+<!--                                            .label-add Add to cart-->
+<!---->
+<!--script(type="text/ng-template", id="buynowFileDialog")-->
+<!--    .ngdialog-message-->
+<!--        h3 BUY NOW-->
+<!--        .row-->
+<!--            .col-md-6.image-->
+<!--            .col-md-6-->
+<!--                .dataset-name {{data.name}}-->
+<!--                .row-->
+<!--                    .col-md-6 FROM-->
+<!--                    .col-md-6 PRICE-->
+<!--                .row-->
+<!--                    .col-md-6 {{data.name}}-->
+<!--                    .col-md-6 {{data.priceType.amount}} {{data.priceType.currency}}-->
+<!--        button.btn.btn-default(type='button', ng-click="placeOrder()") Place order-->
+<!---->
+<!--script(type="text/ng-template", id="buynowStreamDialog")-->
+<!--    .ngdialog-message-->
+<!--        h3 CHOOSE YOUR ACCESS PERIOD-->
+<!--        .row-->
+<!--            .time.form-group.col-md-12-->
+<!--                input.form-control(type='text', name="time" placeholder='', ng-model="time", required='')-->
+<!--            .col-md-12-->
+<!--                .btn-group-->
+<!--                    label.btn.btn-default(ng-model='radioModel', btn-radio="'HOUR'" ng-click='setTab("HOUR")') HOUR-->
+<!--                    label.btn.btn-default(ng-model='radioModel', btn-radio="'DAY'" ng-click='setTab("DAY")') DAY-->
+<!--                    label.btn.btn-default(ng-model='radioModel', btn-radio="'WEEK'" ng-click='setTab("WEEK")') WEEK-->
+<!--                    label.btn.btn-default(ng-model='radioModel', btn-radio="'MONTH'" ng-click='setTab("MONTH")') MONTH-->
+<!---->
+<!--            .col-md-12-->
+<!---->
+<!---->
+<!--        button.btn.btn-default(type='button', ng-click="placeOrder()") Place order-->

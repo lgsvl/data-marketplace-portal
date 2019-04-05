@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="362" height="294" viewBox="0 0 362 294">
+    <defs>
+        <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#ECF7F9"/>
+            <stop offset="100%" stop-color="#EDF7FA" stop-opacity="0"/>
+        </linearGradient>
+        <rect id="c" width="18" height="18" x="240" y="176" rx="9"/>
+        <filter id="b" width="488.9%" height="488.9%" x="-194.4%" y="-138.9%" filterUnits="objectBoundingBox">
+            <feOffset dy="10" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="10"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(0 -5)">
+        <text fill="#393C40" font-family="Roboto-Light, Roboto" font-size="18" font-weight="300">
+            <tspan x="26" y="19">Sales</tspan>
+        </text>
+        <path fill="url(#a)" d="M.32 80.399C48.107 44.083 92.312 10.11 168.774 42.504c76.462 32.394 135.003-74.975 193.544-32.343V150H.32V80.399z" transform="translate(0 149)"/>
+        <path stroke="#EC475C" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M.32 230c47.788-36.587 91.993-70.814 168.455-38.178 76.462 32.636 135.003-75.536 193.544-32.585"/>
+        <text fill="#4A4A4A" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" letter-spacing="2">
+            <tspan x="252" y="70">DAY</tspan>
+        </text>
+        <rect width="75" height="23" x="60.5" y="54.5" stroke="#EC475C" rx="11.5"/>
+        <text fill="#EC475C" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" letter-spacing="2">
+            <tspan x="77" y="70">MONTH</tspan>
+        </text>
+        <text fill="#4A4A4A" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" letter-spacing="2">
+            <tspan x="166.329" y="70">WEEK</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="58.188" y="292">Jan</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="103.2" y="292">Feb</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="148.076" y="292">Mar</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="194.409" y="292">Apr</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="237.244" y="292">May</tspan>
+        </text>
+        <text fill="#EC475C" font-family="Roboto-Light, Roboto" font-size="12" font-weight="300">
+            <tspan x="283.106" y="292">Jun</tspan>
+        </text>
+        <use fill="#000" filter="url(#b)" xlink:href="#c"/>
+        <rect width="17" height="17" x="240.5" y="176.5" fill="#FFF" stroke="#EC475C" stroke-linejoin="square" rx="8.5"/>
+        <text fill="#4A4A4A" font-family="Roboto-Light, Roboto" font-size="35" font-weight="300">
+            <tspan x="213" y="171">184 </tspan> <tspan x="257.073" y="207.965" font-size="12">token</tspan>
+        </text>
+    </g>
+</svg>

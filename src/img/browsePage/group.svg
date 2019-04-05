@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="208" height="842" viewBox="0 0 208 842">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="397">Category</tspan>
+        </text>
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="17">Sort by </tspan>
+        </text>
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="677">Price : Token</tspan>
+        </text>
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="804">Avg. Customer Review</tspan>
+        </text>
+        <path stroke="#F3F3F3" d="M2 824h16v17H2z"/>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="164" y="744">Any</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="841">Number of reviews</tspan>
+        </text>
+        <path fill="#979797" fill-rule="nonzero" d="M9.594 717h166.933a4.5 4.5 0 1 1 0 1H9.594a4.5 4.5 0 1 1 0-1zm-7.973.5a3.5 3.5 0 1 0 7 0 3.5 3.5 0 0 0-7 0zm182.879 0a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0z"/>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="0" y="741">0</tspan>
+        </text>
+        <path fill="#EC475C" d="M79.189 700.245c8.597 0 15.566 6.97 15.566 15.566 0 8.597-6.97 15.566-15.566 15.566-8.597 0-15.566-6.969-15.566-15.566 0-8.597 6.969-15.566 15.566-15.566z"/>
+        <text fill="#FFF" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="70" y="726">11</tspan>
+        </text>
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="112">Properties</tspan>
+        </text>
+        <text fill="#A6A6A6" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="2" y="234">Owenership</tspan>
+        </text>
+        <path stroke="#F3F3F3" d="M2 417h16v17H2zM2 133h16v17H2zM2 255h16v17H2zM2 453h16v17H2zM2 169h16v17H2zM2 291h16v17H2zM2 328h16v17H2zM2 491h16v17H2zM2 529h16v17H2zM2 567h16v17H2zM2 605h16v17H2z"/>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="434"> Automotive </tspan> <tspan x="172.544" y="434" font-size="8"> </tspan> <tspan x="174.924" y="434">2</tspan>
+        </text>
+        <text fill="#4A4A4A" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="272"> Shared </tspan> <tspan x="173.902" y="272" font-size="4"> </tspan> <tspan x="175.292" y="272">5</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="470"> Smart home </tspan> <tspan x="169.619" y="470" font-size="11"> </tspan> <tspan x="172.742" y="470" font-size="9"> </tspan> <tspan x="175.37" y="470">2</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="186"> Streaming </tspan> <tspan x="172.037" y="186" font-size="12"> </tspan> <tspan x="175.408" y="186">2</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="308"> Transfer </tspan> <tspan x="170.673" y="308" font-size="7"> </tspan> <tspan x="174.939" y="308">2</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="345"> Sole </tspan> <tspan x="171.6" y="345" font-size="13"> </tspan> <tspan x="175.218" y="345">5</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="33" y="508">AI </tspan> <tspan x="170.695" y="508" font-size="7"> </tspan> <tspan x="174.961" y="508">2</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="546"> Mobile </tspan> <tspan x="172.292" y="546" font-size="10"> </tspan> <tspan x="175.168" y="546">2</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="584"> Robotics 5</tspan>
+        </text>
+        <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="622"> Retail </tspan> <tspan x="172.725" y="622" font-size="9"> </tspan> <tspan x="175.353" y="622">0</tspan>
+        </text>
+        <path fill="#EC475C" d="M7.925 28.156h89.71c1.55 0 2.804 1.294 2.804 2.89v28.907c0 1.597-1.255 2.89-2.803 2.89H7.925c-1.548 0-2.804-1.293-2.804-2.89V31.047c0-1.597 1.256-2.89 2.804-2.89z"/>
+        <g opacity=".317">
+            <path fill="#FFF" stroke="#D2D2D2" stroke-width="2" d="M114.925 29.156c-.99 0-1.804.84-1.804 1.89v28.907c0 1.051.815 1.89 1.804 1.89h89.71c.99 0 1.804-.839 1.804-1.89V31.047c0-1.051-.814-1.89-1.803-1.89h-89.711z"/>
+            <text fill="#343434" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(111 27)">
+                <tspan x="30" y="24">New</tspan>
+            </text>
+        </g>
+        <text fill="#FFF" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="20" y="55"> Popular </tspan>
+        </text>
+        <text fill="#4A4A4A" font-family="Roboto-Regular, Roboto" font-size="16" letter-spacing=".4" transform="translate(0 -4)">
+            <tspan x="30" y="150"> File 10</tspan>
+        </text>
+    </g>
+</svg>

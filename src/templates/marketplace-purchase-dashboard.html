@@ -1,0 +1,137 @@
+<!--Created by gina on 11/14/18.-->
+<div ng-controller="PurchaseDashboardController as data" class="container-fluid purchase-dashboard-container">
+   <div class="dashboard-container">
+      <div class="title-label">Dashboard</div>
+      <div class="dashboard">
+         <div class="dashboard-panel1 panel-item">
+            <div class="dashboard-image"></div>
+         </div>
+         <div class="dashboard-panel2 panel-item data-ready-container">
+            <div class="data-label-container">
+               <div class="data-ready-label">Data ready:</div>
+               <div class="num-of-data-ready">{{data.purchasedUploadedNotDownloaded.length}}</div>
+            </div>
+            <div class="list-of-data-ready">
+               <div class="dataset-table">
+                  <div class="table-responsive">
+                     <table datatable="ng" class="hover col-md-12">
+                        <tbody>
+                           <tr ng-repeat="dataset in data.purchasedUploadedNotDownloaded">
+                              <td class="first-column">
+                                 <div style="background-image: url({{dataset.detail.thumbnailURL}})" class="user-image">
+                                    <!--em.icon-picture-->
+                                 </div>
+                                 <div class="text-container">
+                                    <div class="data-name">{{dataset.detail.name}}</div>
+                                    <div class="requested-date">{{dataset.creationDateTime | date: 'mm-dd-yyyy'}}</div>
+                                 </div>
+                              </td>
+                              <td class="col-md-3">
+                                 <div class="data-type">{{dataset.detail.dataType}}</div>
+                              </td>
+                              <td class="col-md-2 last-column">
+                                 <div ng-click="data.downloadDataset(dataset)" ng-if="dataset.detail.dataType != &quot;STREAM&quot;" class="download-icon data-icon"></div>
+                                 <div ng-click="data.viewStream(dataset)" ng-if="dataset.detail.dataType == &quot;STREAM&quot;" class="stream-icon data-icon"></div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="dashboard-panel3 panel-item">
+            <div class="dashboard-image"></div>
+         </div>
+      </div>
+   </div>
+   <div class="purchase-data-list-container">
+      <div class="title-container">
+         <div class="left-container">
+            <div class="title-label">Your purchased products:</div>
+            <div class="num-of-products">{{data.purchasedByConsumer.length}}</div>
+         </div>
+         <div class="input-group dropdown-buttons right-container">
+            <div dropdown="" class="input-group-btn category-btn custom-dropdown">
+               <button type="button" dropdown-toggle="" value="Data" class="btn btn-default">
+                  <div class="button-label">{{data.category}}</div>
+                  <span class="dropdown-arrow"></span>
+               </button>
+               <ul class="dropdown-menu">
+                  <li ng-repeat="category in data.categories"><a ng-click="data.setCategory(category)">{{category.name}}</a>
+                  </li>
+               </ul>
+            </div>
+            <div dropdown="" class="input-group-btn sorting-btn custom-dropdown">
+               <button type="button" dropdown-toggle="" value="Data" class="btn btn-default">
+                  <div class="button-label">{{data.sort}}</div>
+                  <span class="dropdown-arrow"></span>
+               </button>
+               <ul class="dropdown-menu">
+                  <li ng-repeat="sort in data.sortingOptions"><a ng-click="data.setSorting(sort)">{{sort}}</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="dataset-table">
+         <div class="table-responsive">
+            <table datatable="ng" class="hover col-md-12">
+               <thead>
+                  <tr>
+                     <th class="col-md-4">DATA TITILE</th>
+                     <th>TYPE</th>
+                     <th>PRICE</th>
+                     <th>CREATE</th>
+                     <th>STATUS</th>
+                     <th>EDIT</th>
+                     <th>DOWNLOAD</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="product in data.purchasedByConsumer">
+                     <td ng-click="data.openDetailPage(product)" class="first-column">
+                        <div style="background-image: url({{product.detail.thumbnailURL}})" class="image"></div>
+                        <div class="text-container">
+                           <div class="name">{{product.detail.name}}</div>
+                           <div ng-bind="data.getCategory(product.detail.categoryId)" class="category"></div>
+                           <rating ng-model="product.detail.score" max="5" readonly="true" class="rate"></rating>
+                        </div>
+                     </td>
+                     <td>{{product.detail.dataType}}</td>
+                     <td>{{product.detail.priceType.amount}}</td>
+                     <td>{{product.creationDateTime | date}}</td>
+                     <td class="status-row">
+                        <div class="status">ACTIVE</div>
+                     </td>
+                     <td>
+                        <div class="delete-icon"></div>
+                     </td>
+                     <td class="download-container">
+                        <div ng-if="product.detail.dataType == 'STREAM'" ng-click="data.viewStream(product)" class="play-icon"></div>
+                        <div ng-if="product.extras.fileStatus == 'PROPOSAL'" class="pending">Pending...</div>
+                        <div ng-if="product.extras.fileStatus =='DATASHIPPED' &amp;&amp; product.detail.dataType != 'STREAM'" ng-click="data.downloadDataset(product)" class="download"></div>
+                        <div ng-if="product.extras.fileStatus =='DATARECEIVED'" ng-click="data.downloadDataset(product)" class="download"></div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="search-container form-group">
+         <div class="search-input">
+            <input type="text" placeholder="Search.." class="form-control" />
+         </div>
+         <div class="search-button">
+            <button type="button" class="btn"></button>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/ng-template" id="streamDialog">
+   <div class="ngdialog-stream-dialog"><!--h3 Stream data--><div class="top-meta-container"><div style="background-image: url({{data.detail.thumbnailURL}})" class="image"></div><div class="metadata-container"><div class="data-name">{{data.detail.name}}</div><div ng-bind="getCategory(data.detail.categoryId)" class="category-name"></div><div class="provider"><div class="by-label">By</div><div ng-bind="getCompanyName(data.provider)" class="provider-label"></div></div><rating ng-model="data.detail.score" max="5" readonly="true" class="rate"></rating><div class="detail-meta"><div class="frequency-label">FREQUENCY OF UPDATES</div><div class="frequency-value">{{data.detail.extras.frequency}}/Minute</div><div class="file-type-label">FILE TYPE</div><div class="file-type-value">{{data.detail.dataType}}</div></div><div class="expiration">Will be expire in {{timeLeft}} days</div><button type="button" class="btn extend-btn">Extend</button></div></div><!----><!--.metadata-container--><!--    .col-md-2--><!--        .label FROM--><!--        .value {{data.detail.provider}}--><!--    .col-md-2--><!--        .label PRICE--><!--        .value {{data.detail.price.amount}}--><!--    .col-md-2--><!--        .label FREQUENCY--><!--        .value {{data.detail.extras.frequency}}--><!--    .col-md-2--><!--        .label CATEGORY--><!--        .value {{data.detail.categoryId}}--><!--    .col-md-2--><!--        .label FILE TYPE--><!--        .value {{data.detail.dataType}}--><!--    .col-md-2--><!--        .label OWNERSHIP--><!--        .value {{data.detail.ownership.ownershipType}}--><!--.row--><!--    .topic.form-group.col-md-4--><!--        input.form-control(type='text', name="topic" placeholder='Topic', ng-model="metadata.topic", required='')--><!--    .endPoint.form-group.col-md-8--><!--        input.form-control(type='text', name="endpoint" placeholder='End Point', ng-model="metadata.endPoint", required='')-->
+   <div class="list-of-data">List of data : {{streamData.length}}</div><div class="table-responsive stream-data-table"><table datatable="ng" class="hover col-md-12"><thead><tr><th class="col-md-3">Offset</th><th class="col-md-9">DATA</th></tr></thead><tbody><tr ng-repeat="data in streamData | orderBy:'-offset':reverse"><td>{{ data.offset }}</td><td class="value-td">{{ data.value }}</td></tr></tbody></table></div></div>
+</script>
+<script type="text/ng-template" id="downloadDataSuccessfulDialog">
+   <div class="panel-body data-successful-dialog"><div class="text">Your files are downloaded.</div></div>
+</script>

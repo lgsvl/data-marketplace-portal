@@ -1,0 +1,33 @@
+<!--Created by gina on 9/19/18.
+-->
+<div ng-controller="LoginController as login" class="container-fluid login-page">
+   <div class="block-center mt-xl wd-xl">
+      <!-- START panel-->
+      <div class="panel panel-dark panel-flat">
+         <div class="panel-body">
+            <p class="text-center pv">Sign in</p>
+            <form role="form" ng-submit="login.login()" name="login.loginForm" novalidate="" class="form-validate mb-lg">
+               <div class="form-group has-feedback">
+                  <input type="email" name="account_email" placeholder="Enter email" ng-model="login.account.email" required="" class="form-control" />
+               </div>
+               <div class="form-group has-feedback">
+                  <input type="password" name="account_password" placeholder="Password" ng-model="login.account.password" required="" class="form-control" />
+               </div>
+               <button type="submit" ng-click="login.signIn()" class="btn btn-block btn-primary mt-lg">Sign in</button>
+               <div class="regiser-button-container text-center">
+                  <div class="btn pv regiser-button">Register</div>
+               </div>
+               <div class="clearfix">
+                  <div class="checkbox c-checkbox pull-left mt0">
+                     <label>
+                        <input type="checkbox" value="" name="account_remember" ng-model="login.account.remember" />
+                        <span class="fa fa-check"></span>Remember Me</label>
+                  </div>
+                  <div class="pull-right"><a ui-sref="login.recover" class="text-muted">Forgot password</a>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

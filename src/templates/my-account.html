@@ -1,0 +1,21 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="MyAccountController as data" class="container-fluid create-dataset-container">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <div class="btn-group">
+            <label ng-model="data.radioModel" btn-radio="'MyPurchases'" ng-click="setTab(&quot;MyPurchases&quot;)" class="btn btn-default">My Purchases</label>
+            <label ng-model="data.radioModel" btn-radio="'ManageDatasets'" ng-click="setTab(&quot;ManageDatasets&quot;)" class="btn btn-default">Manage Data Sets</label>
+            <label ng-model="data.radioModel" btn-radio="'MyUploads'" ng-click="setTab(&quot;MyUploads&quot;)" class="btn btn-default">My Uploads</label>
+         </div>
+         <div ng-if="isSet('MyPurchases')">
+            <div ui-view="myPurchases" autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper"></div>
+         </div>
+         <div ng-if="isSet('ManageDatasets')">
+            <div ui-view="manageDatasets" autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper"></div>
+         </div>
+         <div ng-if="isSet('MyUploads')">
+            <div ui-view="myUploads" autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper"></div>
+         </div>
+      </div>
+   </div>
+</div>

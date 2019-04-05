@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: portal-deployment
+spec:
+  selector:
+    matchLabels:
+      app: portal
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+      - name: portal
+        image: ec2-34-222-112-246.us-west-2.compute.amazonaws.com:5000/portal-os:ci
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CHAIN_SERVICE_HOST
+          value: "http://a6d3ed3e2ec1811e8b2390a76473292d-1299762505.us-west-2.elb.amazonaws.com:9090/api"
+        - name: CATALOG_SERVICE_HOST
+          value: "http://a3ab16b68cbf211e8bc0602be933273b-744483006.us-west-2.elb.amazonaws.com:9000/api/v1"
+        - name: CATEGORY_SERVICE_HOST
+          value: "http://a839f6407d87411e8bc0602be933273b-878393536.us-west-2.elb.amazonaws.com:9001/api/v1"
+        - name: REVIEWS_SERVICE_HOST
+          value: "http://a3e5c1200cbf211e8bc0602be933273b-722091094.us-west-2.elb.amazonaws.com:9002/api/v1"
+        - name: TRADE_SERVICE_HOST
+          value: "http://a83971787d87411e8bc0602be933273b-931213160.us-west-2.elb.amazonaws.com:9003/api/v1"
+        - name: DATA_STORAGE_DELIVERY_SERVICE_HOST
+          value: "http://a83a74e8fd87411e8bc0602be933273b-2077234491.us-west-2.elb.amazonaws.com:3000/v1"
+        - name: STREAM_SERVICE_HOST
+          value: "http://a57d31018d87411e8bc0602be933273b-832444469.us-west-2.elb.amazonaws.com:7778/v1"
+        - name: STREAM_CONSUMPTION_SERVICE_HOST
+          value: "http://a2fcbb1ecded211e8bc0602be933273b-1351790514.us-west-2.elb.amazonaws.com:80/consumers"
+
+

@@ -1,0 +1,41 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="MyAccountUploadsController as data" class="container-fluid account-upload-container">
+   <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+         <div class="upload-data-label">UPLOAD DATA</div>
+         <div ng-repeat="dataset in data.soldToUpload">
+            <div class="form-group form-row">
+               <div class="col-md-4 contract-id-input">
+                  <input type="text" name="title" placeholder="Title" ng-model="dataset.detail.name" required="" class="form-control" />
+               </div>
+               <div class="col-md-4 contract-id-input">
+                  <input type="text" name="smart-contract-id" placeholder="SMART CONTRACT ID" ng-model="dataset.id" required="" class="form-control" />
+               </div>
+               <div class="col-md-4 contract-id-input">
+                  <input type="text" name="public-key" placeholder="PUBLIC KEY" ng-model="data.metadata.contractId" required="" class="form-control" />
+               </div>
+            </div>
+            <div class="form-group">
+               <div>
+                  <div class="col-md-12 upload-input">
+                     <input filestyle="" type="file" data-button-text="Upload" data-class-button="btn btn-default" data-class-input="form-control inline" nv-file-select="" uploader="data.uploader" multiple="" ng-files="data.getTheFiles($files)" />
+                  </div>
+                  <div class="col-md-12 finish-upload-btn">
+                     <button ng-click="data.uploadFile(dataset.id)" class="btn btn-default mt-lg">Finish Upload</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="upload-data-label">PAST UPLOADS
+            <div ng-repeat="dataset in data.soldUploaded" class="well">
+               <div class="form-group">
+                  <div class="col-md-4">{{dataset.detail.name}}</div>
+                  <div class="col-md-4">{{dataset.id}}</div>
+                  <div class="col-md-4">{{dataset.creationDateTime}}</div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

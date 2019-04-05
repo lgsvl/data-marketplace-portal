@@ -1,0 +1,177 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="SellController as data" class="create-dataset-container">
+   <div class="sell-upload-label">
+      <div class="sell">SELL</div>
+      <div class="slash">/</div>
+      <div class="upload-data">UPLOAD DATA</div>
+   </div>
+   <div class="top-container">
+      <div class="progressbar-container">
+         <progressbar max="100" value="data.stepProgbar" class="progressbar-bar"></progressbar>
+         <ul class="progressbar">
+            <li ng-class="{'active':isSelected(1), 'done': isDone(1)}" class="step1-indicator">TYPE</li>
+            <li ng-class="{'active':isSelected(2), 'done': isDone(2)}" class="step2-indicator">DESCRIPTION</li>
+            <li ng-class="{'active':isSelected(3), 'done': isDone(3)}" class="step3-indicator">INFO</li>
+         </ul>
+      </div>
+   </div>
+   <form>
+      <!-- START Wizard Step inputs-->
+      <div ng-if="isSelected(1)" class="progress-container step-1">
+         <div class="main-label">What type of data do you want to sell?</div>
+         <div class="dataType-selection-container">
+            <label class="dataset-container">
+               <input type="radio" ng-model="data.dataType" value="File" ng-click="doneButton = 'done-valid'" />
+               <div class="dataset data-type-container">
+                  <div class="data-icon"></div>
+                  <div class="data-label">FILE</div>
+               </div>
+            </label>
+            <label class="stream-container">
+               <input type="radio" ng-model="data.dataType" value="Stream" ng-click="doneButton = 'done-valid'" />
+               <div class="stream data-type-container">
+                  <div class="data-icon"></div>
+                  <div class="data-label">STREAMING</div>
+               </div>
+            </label>
+         </div>
+         <div class="button-container">
+            <button type="button" ng-click="setPrevious('dashboard')" class="btn cancel-button">
+               <div class="left-arrow-icon"></div>
+               <div class="cancel-label">Cancel</div>
+            </button>
+            <button type="button" ng-click="setNext('dataTypeSelection')" ng-class="doneButton" ng-disabled="doneButton!='done-valid'" class="btn next-button">
+               <div class="next-label">Next</div>
+               <div class="right-arrow-icon"></div>
+            </button>
+         </div>
+      </div>
+      <div ng-if="isSelected(2)" class="progress-container step-2">
+         <div class="main-label">Please type data description</div>
+         <div class="data-description-container">
+            <div class="title form-group">
+               <input type="text" name="title" placeholder="Title. 100 characters max" ng-model="data.metadata.title" required="" class="form-control" />
+            </div>
+            <div class="description-row form-group">
+               <div class="description">
+                  <textarea placeholder="Description here. Max 400 characters:" ng-model="data.metadata.description" class="form-control"></textarea>
+               </div>
+            </div>
+            <div class="category form-group">
+               <div dropdown="" class="input-group-btn category-btn custom-dropdown-small">
+                  <button type="button" dropdown-toggle="" value="Data" class="btn">
+                     <div class="button-label">{{data.categoryInput}}</div>
+                     <span class="dropdown-arrow"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                     <li ng-repeat="category in data.option.category"><a ng-click="data.setCategory(category)">{{category.name}}</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="thumbnail-url form-group">
+               <input type="text" name="thumbnail" placeholder="Thumbnail Url" ng-model="data.metadata.thumbnailUrl" required="" class="form-control" />
+            </div>
+         </div>
+         <div class="button-container">
+            <button type="button" ng-click="setPrevious()" class="btn cancel-button">
+               <div class="left-arrow-icon"></div>
+               <div class="cancel-label">Cancel</div>
+            </button>
+            <button type="button" ng-click="setNext()" class="btn next-button">
+               <div class="next-label">Next</div>
+               <div class="right-arrow-icon"></div>
+            </button>
+         </div>
+      </div>
+      <!-- END Wizard Step inputs-->
+      <!-- START Wizard Step inputs-->
+      <div ng-if="isSelected(3)" class="progress-container step-3 confirm-bundle-container">
+         <div class="main-label">Please type data info</div>
+         <div ng-if="data.selectedDataType =='File'" class="dataset-dataType">
+            <div class="price form-group">
+               <input type="text" name="price" placeholder="Price" ng-model="data.metadata.price" required="" class="form-control" />
+            </div>
+            <div class="file-size form-group">
+               <div dropdown="" class="input-group-btn filesize-btn custom-dropdown-small">
+                  <button type="button" dropdown-toggle="" value="Data" class="btn">
+                     <div class="button-label">{{data.filesizeInput}}</div>
+                     <span class="dropdown-arrow"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                     <li ng-repeat="filesize in data.option.filesize"><a ng-click="data.setFilesize(filesize)">{{filesize}}</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="ownership">
+               <div class="ownership-container">
+                  <div class="ownership-label">Ownership</div>
+                  <div class="ownership-icon"></div>
+               </div>
+               <div class="ownership-radiobutton">
+                  <label class="radio-container">Shared
+                     <input type="radio" ng-model="data.metadata.ownership" value="SHARED" />
+                     <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">Transfer
+                     <input type="radio" ng-model="data.metadata.ownership" value="TRANSFERRED_TO_BUYER" />
+                     <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">Sole
+                     <input type="radio" ng-model="data.metadata.ownership" value="HOLD_BY_SELLER" />
+                     <span class="checkmark"></span>
+                  </label>
+               </div>
+            </div>
+         </div>
+         <div ng-if="data.selectedDataType =='Stream'" class="stream-dataType">
+            <div class="price form-group">
+               <input type="text" name="price" placeholder="Price per hour" ng-model="data.metadata.price" required="" class="form-control" />
+            </div>
+            <div class="frequency">
+               <div class="form-group frequency-value">
+                  <input type="text" name="frequency" placeholder="Frequency of updates" ng-model="data.metadata.frequency" required="" ng-readonly="true" class="form-control" />
+                  <a data-ng-click="data.frequencyUpdate('minus')" class="ns-minus"></a>
+                  <a data-ng-click="data.frequencyUpdate('plus')" class="ns-plus"></a>
+               </div>
+               <div class="frequency-unit">Per Minute</div>
+            </div>
+            <div class="pull-push">
+               <div class="pull-push-container">
+                  <div class="pull-push-label">Module</div>
+                  <div class="pull-push-icon"></div>
+               </div>
+               <div class="pull-push-radiobutton">
+                  <label class="radio-container">Pull
+                     <input type="radio" ng-model="data.metadata.pullPushModel" value="Pull" />
+                     <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">Push
+                     <input type="radio" ng-model="data.metadata.pullPushModel" value="Push" />
+                     <span class="checkmark"></span>
+                  </label>
+               </div>
+               <div class="stream-info">
+                  <div ng-if="data.metadata.pullPushModel =='Pull'" class="stream-endpoint form-group">
+                     <input type="text" name="streamEndpoint" placeholder="Stream end point" ng-model="data.metadata.streamEndPoint" required="" class="form-control" />
+                  </div>
+                  <div ng-if="data.metadata.pullPushModel =='Pull'" class="stream-topic form-group">
+                     <input type="text" name="streamTopic" placeholder="Stream topic" ng-model="data.metadata.streamTopic" required="" class="form-control" />
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="button-container">
+            <button type="button" ng-click="setPrevious()" class="btn cancel-button">
+               <div class="left-arrow-icon"></div>
+               <div class="cancel-label">Cancel</div>
+            </button>
+            <button type="button" ng-click="createData()" class="btn next-button">
+               <div class="next-label">Done</div>
+               <div class="right-arrow-icon"></div>
+            </button>
+         </div>
+      </div>
+   </form>
+</div>

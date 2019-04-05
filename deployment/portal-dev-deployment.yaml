@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: portal-deployment
+spec:
+  selector:
+    matchLabels:
+      app: portal
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: portal
+    spec:
+      containers:
+      - name: portal
+        image: ec2-34-222-112-246.us-west-2.compute.amazonaws.com:5000/portal-os:dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CHAIN_SERVICE_HOST
+          value: "https://swaggerui.datagraviti.com:9090/api"
+        - name: CATALOG_SERVICE_HOST
+          value: "https://facade.datagraviti.com/api/v1"
+        - name: CATEGORY_SERVICE_HOST
+          value: "https://facade.datagraviti.com/api/v1"
+        - name: REVIEWS_SERVICE_HOST
+          value: "https://facade.datagraviti.com/api/v1"
+        - name: TRADE_SERVICE_HOST
+          value: "https://facade.datagraviti.com/api/v1"
+        - name: DATA_STORAGE_DELIVERY_SERVICE_HOST
+          value: "https://file.datagraviti.com/v1"
+        - name: STREAM_SERVICE_HOST
+          value: "https://stream.datagraviti.com/v1"
+        - name: STREAM_CONSUMPTION_SERVICE_HOST
+          value: "https://kafka.datagraviti.com/consumers"
+
+
+     

@@ -1,0 +1,17 @@
+<!--Created by gina on 9/18/18.-->
+<div ng-controller="DatasetStreamCreateConfirmController as confirm" class="container-fluid dataset-created-confirmed-stream">
+   <div class="dataset-create-confirmed-label">Data set created</div>
+   <div class="dataset-create-confirmed-description">Make sure you connect you stream at your earliest convenience. So it becomes available on the marketplace.</div>
+   <div class="endpoint-container">
+      <div class="topic-label">TOPIC</div>
+      <div class="topic-value">{{confirm.metadata.topic}}</div>
+      <div class="endpoint-label">ENDPOINT</div>
+      <div class="endpoint-value">{{confirm.metadata.endPoint}}</div>
+
+   </div>
+   <div class="buttons">
+      <button type="button" ng-click="confirm.goMySell()" class="btn go-sell-button">Go to my data sets</button>
+      <button type="button" ng-click="confirm.goToSellOnMarket()" class="btn create-more-dataset">Create new data</button>
+   </div>
+
+</div>
