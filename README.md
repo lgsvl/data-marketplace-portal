@@ -36,3 +36,6 @@ marketplaces: [
 
 * Put whole server url including client_id and redirect_uri if your own server requires it.
 Current code is set to run at port 5000 and localhost:5000 is registered at amazon cognito.
+
+### Sample Pages
+[Check out sample pages](https://gina-baek.github.io/data-market-places-portal/sample)
