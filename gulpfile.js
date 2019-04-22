@@ -1,3 +1,7 @@
+/*
+ Copyright (c) 2019 LG Electronics Inc.
+ SPDX-License-Identifier: Apache-2.0
+*/
 var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     wrap = require('gulp-wrap'),

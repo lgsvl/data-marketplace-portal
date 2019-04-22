@@ -1,3 +1,8 @@
+/*
+ Copyright (c) 2019 LG Electronics Inc.
+ SPDX-License-Identifier: Apache-2.0
+*/
+
 
 // To run this code, edit file index.html or index.jade and change
 // html data-ng-app attribute from angle to myAppName

@@ -1,3 +1,8 @@
+#
+# Copyright (c) 2019 LG Electronics Inc.
+# SPDX-License-Identifier: Apache-2.0
+#
+
 FROM alpine:3.8 AS base
 
 WORKDIR /usr/src/app
